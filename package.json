@@ -5,18 +5,25 @@
   "author": "yam24bot <danil180401@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js",
+    "start": "cross-env PORT=3001 node index.js",
     "dev": "nodemon index.js"
   },
   "devDependencies": {
+    "emmet": "^1.6.3",
     "eslint": "^5.11.0",
+    "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-node": "^8.0.0",
-    "nodemon": "^1.18.9"
+    "nodemon": "^1.18.9",
+    "prettier": "^1.15.3"
   },
   "engines": {
     "node": ">=6.0.0"
   },
   "dependencies": {
-    "express": "^4.16.4"
+    "body-parser": "^1.18.3",
+    "cross-env": "^5.2.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "mongoose": "4.13.7﻿"
   }
 }
