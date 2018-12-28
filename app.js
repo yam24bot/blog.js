@@ -1,16 +1,17 @@
 var express = require("express");
+var bodyParser = require("body-parser");
+
+const Post = require("./models/post.js");
 
 var app = express();
-
-var bodyParser = require("body-parser");
 
 app.set("view engine", "ejs"); // Установка шаблонизатора ejs
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const arr = ["hello", "world", "test"];
-
 app.get("/", function(req, res) {
-  res.render("index", { arr: arr });
+  Post.find({}).then(posts => {
+    res.render("index", { posts: posts });
+  });
 });
 
 app.get("/create", function(req, res) {
@@ -18,7 +19,12 @@ app.get("/create", function(req, res) {
 });
 
 app.post("/create", function(req, res) {
-  arr.push(req.body.text);
+  const { title, body } = req.body; //Рестукуризация
+
+  Post.create({
+    title: title,
+    body: body
+  }).then(post => console.log(post.id));
   res.redirect("/");
 });
 
