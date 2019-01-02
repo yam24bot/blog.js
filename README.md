@@ -1,2 +1,2 @@
 blog.js
-frontend.blog.js
+frontend.blog.j
